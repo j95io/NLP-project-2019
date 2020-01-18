@@ -1,0 +1,255 @@
+/* ------ Basic responsive skeleton of the site, works on it's own ------ */
+html, body, #content {
+  height: 100%;
+}
+
+#content {
+  display: flex;
+  flex-direction: row;
+	overflow-x: hidden;
+}
+
+#info{
+	width: 100%;
+  padding: 0.5em;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+#chat {
+  /*
+	background-image: url("/static/chat/img/chat_background.jpg") ;
+  */
+	background-image: url("/static/chat/img/chat_background_alternative.jpg") ;
+	width: 1000px;  /* overwritten for mobile */
+
+	/* ordering of child divs of "chat" */
+  display: flex;
+  flex-direction: column;
+}
+
+#chat_header, #chat_input {
+	flex: 0 0 auto;  
+}
+
+#chat_header {
+	background: #18bc9c;
+	color: white;
+
+  line-height: 2.5em;
+  font-size: 1.3em;
+}
+
+#chat_wrapper {
+	flex: 1 1 auto;
+  overflow-y: scroll; /* overwrite inherited behavior */
+}
+
+@media (max-width: 999px){
+	#chat{
+		flex: 1 1 auto;
+    background-size: contain;
+	}
+	#info {
+		display: none;
+	}
+  .message_id_right{
+		display: none;
+  }
+  .message_id_left{
+		display: none;
+  }
+
+}
+
+/*  ----------- Customization --------- */
+
+#group_icon{
+	margin-bottom: 0.2em;
+	margin-left: 0.2em;
+	max-width: 2em;
+	width: 100%;
+	margin-right: 20px;
+	border-radius: 50%;
+}
+
+#chat_input{
+	display: flex;
+	flex-direction: row;
+}
+
+#message_field {
+	flex: 1 1 auto;
+	border-radius: 20px;
+	margin: 8px 10px 5px 10px;
+}
+
+#post_message {
+	flex: 0 0 auto;
+	border-radius: 50%;
+	margin: 5px 10px 5px 0px;
+}
+
+.fa-send {
+	transform: rotate(50deg);
+}
+
+/* -------- Message Bubbles --------- */
+.message_container {
+	max-width: 85%;
+  border: 1px solid #aaa;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  padding: 3px 6px 3px 6px;
+  margin: 10px 10px 0px 10px;
+	overflow-x:hidden;  /* clip messages with overly long words*/
+}
+
+.right{
+	margin-left: 15%;
+}
+
+
+/* NOTE: message_class_... definitions need to be after .message_container */
+
+.message_class_H {
+  background-color: #fccccc;
+}
+
+.message_class_U {
+}
+
+.message_class_O {
+  background-color: #fccccc;
+}
+
+.message_class_N {
+  background-color: #abfcad;
+}
+
+.message_container img {
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.message_container img.right {
+  float: right;
+  margin-left: 20px;
+  margin-right:0;
+}
+
+.message_class_tag {
+  text-align: center;
+}
+
+.time_left {
+  float: right;
+}
+
+.time_right {
+  float: left;
+}
+
+.message_id_left {
+  float: left;
+}
+
+.message_id_right {
+  float: right;
+}
+
+.grey{
+  color: #999;
+}
+
+.chat_message{
+  word-break: break-all;
+}
+
+#feature_choice{
+  border-style: double;
+  padding: 6px 3px 3px 3px;
+}
+
+/* ----------- Custom scrollbar some browsers, like chrome desktop --------- */
+
+
+/* width */
+::-webkit-scrollbar {
+	width: 0.3em;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #999; 
+	border-radius: 20px;
+}
+
+
+/* ---------- Custom toggle switch ------------------- */
+
+ /* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 34px;
+  height: 20px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 13px;
+  width: 13px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(13px);
+  -ms-transform: translateX(13px);
+  transform: translateX(13px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 17px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+} 
