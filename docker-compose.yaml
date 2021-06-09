@@ -1,0 +1,33 @@
+version: '3'
+services:
+    chat:
+        image: j95io/awt:chat
+        volumes:
+            - static:/static
+        ports:
+            - "8000:8000"
+        restart: unless-stopped
+        deploy:
+            resources:
+                limits:
+                    memory: 300M
+    nginx:
+        image: j95io/awt:nginx
+        volumes:
+            - static:/static
+        ports:
+            - "80:80"
+        depends_on:
+            - chat
+        restart: unless-stopped
+    classifier:
+        image: j95io/awt:classifier
+        ports:
+            - "18861:18861"
+        restart: unless-stopped
+        deploy:
+            resources:
+                limits:
+                    memory: 700M
+volumes:
+    static:

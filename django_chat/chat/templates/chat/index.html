@@ -1,0 +1,138 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Chat</title>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="icon" href="https://j95.io/img/icon.png"/>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<link rel="stylesheet" href="{% static 'chat/css/chat.css' %}"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  {# this needs to be put in templates, so that the template tag gets rendered by django #}
+	<script>var csrf_token="UnZpom40YI36nIJYa4MOxOKleJuSe3HR3rnWL6x13weIASmFZhZt7eCdSmpMUFIW";</script> 
+</head>
+
+<body>
+
+<div id="content">
+	
+<div id="chat">
+
+	<div id="chat_header">
+		<img src="/static/chat/img/Trump.jpg" id="group_icon"></img>
+		AWTPro SS 2019
+	</div>
+
+	<div id="chat_wrapper"></div>
+
+	<div id="chat_input">
+
+		<!-- input box where user writes new messages -->
+		<input id="message_field" class="form-control" type="text"
+			maxlength="200" placeholder="Type a message" autocomplete="off"/>
+
+		<!-- button to submit message (can also be submitted by pressing ENTER) -->
+
+		<button id="post_message" class="btn btn-xs btn-success">
+			<span class="fa fa-send"></span>
+		</button>
+
+	</div>
+
+</div>
+
+<div id="info">
+
+  <h3>Chat Application with AI Harassment Detection</h3>
+
+  <b>Team:</b> AWTPro SS2019 Group 1 (Jonathan Samuel Will, Sabtain Ahmad, Sukanya Sunder)
+  <br>
+  <br>
+
+
+<div id="feature_choice" class="">
+
+  <label class="switch">
+    <input id="relabel_messages" type="checkbox">
+    <span class="slider round"></span>
+  </label>
+  &nbsp;&nbsp;
+  <b>Activate dynamic relabeling feature</b>
+
+</div>
+
+  <br>
+
+  <h4>Technologies</h4>
+
+  <ul>
+    <li>
+      Backend:
+      <ul>
+        <li>Python / Django framework</li>
+        <li>Nginx web server and Gunicorn on Ubuntu</li>
+        <li>SQLite Database</li>
+      </ul>
+    </li>
+    <li>
+      Frontend:
+      <ul>
+        <li>CSS with Bootstrap, FontAwesome Icons</li>
+        <li>Javascript with AJAX, JQuery</li>
+        <li>GIMP to design some of the visuals</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h4>Functioning</h4>
+
+  <ul>
+    <li>
+      General:
+      <ul>
+        <li>Sending messages from the client to the server</li>
+        <li>Messages get classified by server</li>
+        <li>Classification gets added to the message on the client</li>
+      </ul>
+      <li>
+      Chat application details:
+      <ul>
+        <li>Responsive design to work on all devices</li>
+        <li>Smart scrolling: Only scroll down on new messages if not manually scrolled up</li>
+        <li>Everyone gets assigned an identity based on their IP address</li>
+        <li>Participants see their own messages shifted to the right, messages of others shifted to the left</li>
+        <li>Messages get deleted automatically when they are one hour old</li>
+        <li>An identity gets freed up again after the last message from that identity has been deleted</li>
+        <li>If there are no more identities left, every additional participant gets the "Anonymous" default identity</li>
+        <li>Messages can get relabeled based on previous or subsequent messages and their relation to each other</li>
+        <li>Hover with mouse over messages to see additional information regarding the classification and reclassification</li>
+      </ul>
+      <li>
+      Classifier details:
+      </li>
+      <ul>
+        <li>Transfer learning with ULMFIT model</li>
+        <li>Datasets from Formspring and Twitter</li>
+        <li>3 Classes: Normal, Hatespeech and Offensive</li>
+      </ul>
+      </li>
+    </li>
+  </ul>
+
+</div>
+
+
+</div>
+
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  <script type='text/javascript' src="{% static '/chat/js/chat.js' %}"></script>
+
+</body>
+</html>

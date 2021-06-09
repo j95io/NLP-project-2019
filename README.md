@@ -3,7 +3,7 @@ This is a trained NLP classifier for hate speech and offensive language and a ch
 
 # Demo
 
-Go to [uni.j95.io/chat](https://uni.j95.io/chat) to try it out yourself.
+Go to [chat.j95.io](https://chat.j95.io) to try it out yourself.
 Type some messages into the chat and see if offensive messages, hate speech or normal messages get classified correctly.
 
 ![Demo Chat Example](chat_example.png)
