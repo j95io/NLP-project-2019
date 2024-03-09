@@ -1,4 +1,4 @@
 fastai==1.0.61
 spacy==2.3.5
-rpyc==5.0.1
+rpyc==6.0.0
 
