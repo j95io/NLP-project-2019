@@ -1,5 +1,5 @@
 asgiref==3.3.4
-Django==4.2.21
+Django==4.2.22
 gunicorn==23.0.0
 plumbum==1.7.0
 pytz==2021.1
